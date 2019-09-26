@@ -2,8 +2,8 @@
 source ../env.mac.sh
 
 cmake -DTHRUST_INCLUDE_DIR=$THRUST_DIR \
-    -DCMAKE_C_COMPILER=clang \
-    -DCMAKE_CXX_COMPILER=clang++ \
+    -DCMAKE_C_COMPILER=clang-mp-7.0 \
+    -DCMAKE_CXX_COMPILER=clang++-mp-7.0 \
     -DCMAKE_CXX_FLAGS="-g -Wall -Wextra -Wpedantic -Wno-unused-parameter -Wno-float-conversion -Wno-unused-variable -Wno-unused-but-set-variable" \
     -DNETCDF_CXX_INCLUDE_DIR=$NETCDFCXX4INCLUDE \
     -DNETCDF_CXX_LIBRARY=$NETCDFLIB_CPP \
@@ -38,14 +38,14 @@ cmake -DTHRUST_INCLUDE_DIR=$THRUST_DIR \
     -DODEINT=0 \
     -DFIXEDSEEDS=1 \
     -DPARTICLESEEDS=1 \
-    -DGEOM_TRACE=1 \
+    -DGEOM_TRACE=0 \
     -DGEOM_HASH=0 \
     -DGEOM_HASH_SHEATH=0 \
     -DPARTICLE_TRACKS=1 \
     -DPARTICLE_SOURCE_SPACE=0 \
     -DPARTICLE_SOURCE_ENERGY=0 \
     -DPARTICLE_SOURCE_ANGLE=0 \
-    -DPARTICLE_SOURCE_FILE=0 \
+    -DPARTICLE_SOURCE_FILE=1 \
     -DSPECTROSCOPY=2 \
     -DUSE3DTETGEOM=0 \
     -DUSECYLSYMM=1 \

@@ -4,7 +4,7 @@ project(gitr)
 set(OPENMP 1)
 
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_SOURCE_DIR}/CMake/)
-set(CMAKE_CXX_STANDARD 17) # Doesn't set NVCC C++ standard
+set(CMAKE_CXX_STANDARD 14) # Doesn't set NVCC C++ standard
 set(CXX_STANDARD_REQUIRED TRUE)
 
 # Set source files
@@ -93,7 +93,7 @@ if (${OPENMP})
     Message("Enabling OpenMP backend")
     find_package(OpenMP REQUIRED)
     set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${OpenMP_C_FLAGS}")
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${OpenMP_CXX_FLAGS} -O3 -std=c++1z")#-g -G -Wno-c++11-narrowing -fstack-protector-all -fstack-check -W -Wall") #-O3 -g -G
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${OpenMP_CXX_FLAGS} -O3 -std=c++14")#-g -G -Wno-c++11-narrowing -fstack-protector-all -fstack-check -W -Wall") #-O3 -g -G
     set_source_files_properties(${SRC_FILES} PROPERTIES LANGUAGE CXX)
     add_executable(GITR ${SRC_FILES})
     add_definitions("-x c++ -DTHRUST_DEVICE_SYSTEM=THRUST_DEVICE_SYSTEM_OMP")
